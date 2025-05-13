@@ -1,0 +1,6 @@
+# Ignore subdirectories that are separate repositories
+documents/
+github_pages/
+mkato9984.github.io/
+salesforce_project/
+slides_project/

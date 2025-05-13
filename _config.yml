@@ -1,0 +1,4 @@
+theme: jekyll-theme-cayman
+title: CombinedLoss解説
+description: 機械学習モデルの損失関数「CombinedLoss」の詳細な解説
+lang: ja
