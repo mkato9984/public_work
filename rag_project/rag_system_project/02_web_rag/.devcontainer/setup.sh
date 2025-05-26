@@ -53,5 +53,9 @@ except Exception as e:
 "
 
 echo "✅ セットアップ完了！"
-echo "🌐 アプリケーションを起動するには: python web_app.py"
+echo "🌐 Codespaces環境でアプリケーションを起動するには: python web_app_codespaces.py"
 echo "📋 ポート5000でWebアプリケーションにアクセスできます"
+echo ""
+echo "💡 ヒント:"
+echo "   - GOOGLE_API_KEYが未設定でもデモモードで動作します"
+echo "   - 完全な機能を利用するには: export GOOGLE_API_KEY='your-key'"

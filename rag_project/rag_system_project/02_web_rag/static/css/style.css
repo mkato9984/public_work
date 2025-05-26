@@ -23,6 +23,37 @@ body {
     line-height: 1.6;
 }
 
+/* デモモードバナー */
+.demo-banner {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1f2937;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #d97706;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: pulse-glow 2s infinite;
+}
+
+.demo-banner details {
+    margin-top: 10px;
+}
+
+.demo-banner summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #92400e;
+}
+
+.demo-banner summary:hover {
+    color: #451a03;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    50% { box-shadow: 0 6px 12px rgba(251, 191, 36, 0.3); }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

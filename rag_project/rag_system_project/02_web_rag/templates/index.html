@@ -7,8 +7,21 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
+<body>    <div class="container">
+        <!-- デモモード警告バナー -->
+        {% if demo_mode %}
+        <div class="demo-banner">
+            🎭 デモモード実行中 - GOOGLE_API_KEYを設定すると完全な機能が利用できます
+            <details style="margin-top: 10px;">
+                <summary>設定方法を表示</summary>
+                <div style="background: rgba(0,0,0,0.1); padding: 10px; margin-top: 5px; border-radius: 5px;">
+                    <code>export GOOGLE_API_KEY="your-actual-api-key"</code><br>
+                    <small>GitHub Codespacesのターミナルで上記コマンドを実行してください</small>
+                </div>
+            </details>
+        </div>
+        {% endif %}
+        
         <header>
             <h1>RAG システム</h1>
             <p>知識ベースを活用したAI質問応答システム</p>

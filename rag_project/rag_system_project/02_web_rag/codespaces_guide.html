@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Codespaces 起動確認ページ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border-left-color: #FFC107;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border-left-color: #4CAF50;
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.2);
+            border-left-color: #F44336;
+        }
+        a {
+            color: #81C784;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 GitHub Codespaces で RAGシステムを起動する</h1>
+        
+        <div class="step success">
+            <h3>📍 ステップ 1: GitHubリポジトリにアクセス</h3>
+            <p><strong>URL:</strong> <a href="https://github.com/mkato9984/public_work" target="_blank">https://github.com/mkato9984/public_work</a></p>
+            <p>上記リンクをクリックしてGitHubリポジトリを開いてください。</p>
+        </div>
+
+        <div class="step">
+            <h3>🖱️ ステップ 2: Codespacesを起動</h3>
+            <p>GitHubページで以下の順序でクリック：</p>
+            <ol>
+                <li><strong>[Code]</strong> ボタン（緑色）</li>
+                <li><strong>[Codespaces]</strong> タブ</li>
+                <li><strong>[Create codespace on main]</strong> ボタン</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>📂 ステップ 3: プロジェクトフォルダに移動</h3>
+            <p>Codespacesが起動したら、ターミナルで以下を実行：</p>
+            <div class="code">cd rag_project/rag_system_project/02_web_rag</div>
+        </div>
+
+        <div class="step warning">
+            <h3>🔑 ステップ 4: Google API Keyの設定</h3>
+            <p><strong>重要:</strong> 環境変数を設定してください：</p>
+            <div class="code">export GOOGLE_API_KEY="your-actual-api-key"</div>
+            <p>⚠️ API Keyがないと画面が真っ白になる可能性があります</p>
+        </div>
+
+        <div class="step">
+            <h3>🌐 ステップ 5: アプリケーション起動</h3>
+            <div class="code">python web_app.py</div>
+            <p>または</p>
+            <div class="code">python web_app_github.py</div>
+        </div>
+
+        <div class="step success">
+            <h3>✅ ステップ 6: ブラウザでアクセス</h3>
+            <p>Codespacesが自動的にポート5000を転送します：</p>
+            <ul>
+                <li><strong>自動転送URL:</strong> https://[codespace-name]-5000.githubpreview.dev</li>
+                <li><strong>ローカルアクセス:</strong> http://localhost:5000</li>
+            </ul>
+        </div>
+
+        <div class="step error">
+            <h3>🔧 画面が真っ白な場合のトラブルシューティング</h3>
+            <h4>考えられる原因:</h4>
+            <ul>
+                <li>❌ GOOGLE_API_KEYが未設定</li>
+                <li>❌ PostgreSQLサービスが起動していない</li>
+                <li>❌ ポート転送の問題</li>
+                <li>❌ JavaScriptエラー</li>
+            </ul>
+            
+            <h4>解決手順:</h4>
+            <ol>
+                <li><strong>ログ確認:</strong> ターミナルでエラーメッセージを確認</li>
+                <li><strong>ヘルスチェック:</strong> <code>curl http://localhost:5000/health</code></li>
+                <li><strong>ブラウザ開発者ツール:</strong> F12でコンソールエラー確認</li>
+                <li><strong>別ブラウザでテスト:</strong> Chrome、Edge、Firefoxで確認</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>🛠️ 手動デバッグコマンド</h3>
+            <p>問題が発生した場合、以下を順番に実行：</p>
+            <div class="code">
+# PostgreSQL状態確認<br>
+sudo service postgresql status<br><br>
+# PostgreSQL再起動<br>
+sudo service postgresql restart<br><br>
+# 環境変数確認<br>
+echo $GOOGLE_API_KEY<br><br>
+# Python依存関係確認<br>
+pip list | grep -E "(flask|psycopg2|google)"<br><br>
+# ポート確認<br>
+netstat -tulpn | grep :5000
+            </div>
+        </div>
+
+        <div class="step success">
+            <h3>📋 正常動作の確認方法</h3>
+            <p>アプリが正常に動作している場合、以下が表示されます：</p>
+            <ul>
+                <li>✅ RAGシステムのメイン画面</li>
+                <li>✅ 文書アップロード機能</li>
+                <li>✅ 質問応答機能</li>
+                <li>✅ 文書一覧表示</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+            <h3>🎯 成功時のURL例</h3>
+            <p><code>https://scaling-rotary-phone-v6rp4p9rj6qfpx96-5000.app.github.dev/</code></p>
+            <p style="font-size: 0.9em; opacity: 0.8;">※ 実際のURLはCodespacesごとに異なります</p>
+        </div>
+    </div>
+
+    <script>
+        // ページ読み込み確認
+        console.log('GitHub Codespaces 確認ページが正常に読み込まれました');
+        
+        // 現在時刻表示
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date().toLocaleString('ja-JP');
+            console.log(`ページ表示時刻: ${now}`);
+        });
+    </script>
+</body>
+</html>
