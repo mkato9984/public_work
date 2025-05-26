@@ -1,0 +1,13 @@
+# 画像プロジェクトのgitignore設定
+
+# すべてのファイルを除外
+*
+*.*
+
+# .gitignore自体は追跡する
+!.gitignore
+
+# 以下は例として、追跡したい特定のファイルやフォルダがある場合に使用
+# !README.md
+# !*.ps1
+# !copyright_free_resources.md

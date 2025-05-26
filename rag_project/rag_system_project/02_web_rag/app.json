@@ -1,0 +1,45 @@
+{
+  "name": "RAG System",
+  "description": "AI-powered document Q&A system with vector search",
+  "keywords": ["python", "flask", "postgresql", "ai", "rag", "vector-search"],
+  "website": "https://github.com/your-username/rag-system",
+  "repository": "https://github.com/your-username/rag-system",
+  "logo": "https://via.placeholder.com/120x120.png?text=RAG",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "python -c \"from db_utils import create_tables; create_tables()\""
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "image": "heroku/python",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0",
+      "options": {
+        "version": "15"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production"
+    },
+    "GOOGLE_API_KEY": {
+      "description": "Google Gemini API Key for AI functionality",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL (automatically set by Heroku Postgres addon)"
+    }
+  }
+}

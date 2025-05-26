@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG システム - 知識ベース質問応答</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RAG システム</h1>
+            <p>知識ベースを活用したAI質問応答システム</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="qa">質問応答</button>
+            <button class="tab-btn" data-tab="documents">文書管理</button>
+        </div>
+
+        <div class="tab-content active" id="qa-tab">
+            <div class="qa-container">
+                <div class="question-form">
+                    <h2>質問入力</h2>
+                    <div class="input-group">
+                        <input type="text" id="question-input" placeholder="質問を入力してください...">
+                        <button id="ask-btn">質問する</button>
+                    </div>
+                </div>
+
+                <div class="qa-history">
+                    <h2>質問履歴</h2>
+                    <div id="qa-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="documents-tab">
+            <div class="documents-container">
+                <div class="document-form">
+                    <h2>新規文書追加</h2>
+                    <div class="form-group">
+                        <label for="doc-title">タイトル:</label>
+                        <input type="text" id="doc-title" placeholder="文書のタイトルを入力">
+                    </div>
+                    <div class="form-group">
+                        <label for="doc-content">内容:</label>
+                        <textarea id="doc-content" placeholder="文書の内容を入力"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="doc-metadata">メタデータ (JSON形式):</label>
+                        <input type="text" id="doc-metadata" placeholder='{"category": "technology"}'>
+                    </div>
+                    <button id="add-document-btn">文書を追加</button>
+                </div>
+
+                <div class="documents-list">
+                    <h2>登録済み文書一覧</h2>
+                    <div class="documents-count">
+                        <span id="doc-count">0</span> 件の文書があります
+                    </div>
+                    <div id="documents-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 RAG システム - Powered by Google Gemini & PostgreSQL</p>
+        </footer>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>処理中...</p>
+    </div>    <script src="/static/js/script.js"></script>
+</body>
+</html>
