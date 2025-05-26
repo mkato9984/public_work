@@ -31,24 +31,23 @@ def create_app():
             if not api_key:
                 print("エラー: GOOGLE_API_KEYが設定されていません")
                 return None
-            
-            try:
+              try:
                 print(f"RAGシステムを初期化中... API Key: {api_key[:4] if len(api_key) > 8 else 'SHORT'}...")
                 rag_instance = rag_system.RAGSystem(api_key)
-            
-            if rag.initialize_database():
-                print("RAGシステムが正常に初期化されました")
-                return rag
-            else:
-                print("データベース初期化に失敗しました")
-                rag = None
+                
+                if rag_instance.initialize_database():
+                    print("RAGシステムが正常に初期化されました")
+                    return rag_instance
+                else:
+                    print("データベース初期化に失敗しました")
+                    rag_instance = None
+                    return None
+            except Exception as e:
+                print(f"RAGシステム初期化エラー: {e}")
+                rag_instance = None
                 return None
-        except Exception as e:
-            print(f"RAGシステム初期化エラー: {e}")
-            rag = None
-            return None
-    
-    return rag
+        
+        return rag_instance
 
 @app.route('/')
 def index():

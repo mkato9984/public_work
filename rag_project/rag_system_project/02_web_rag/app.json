@@ -1,9 +1,8 @@
 {
   "name": "RAG System",
   "description": "AI-powered document Q&A system with vector search",
-  "keywords": ["python", "flask", "postgresql", "ai", "rag", "vector-search"],
-  "website": "https://github.com/your-username/rag-system",
-  "repository": "https://github.com/your-username/rag-system",
+  "keywords": ["python", "flask", "postgresql", "ai", "rag", "vector-search"],  "website": "https://github.com/mkato9984/public_work",
+  "repository": "https://github.com/mkato9984/public_work",
   "logo": "https://via.placeholder.com/120x120.png?text=RAG",
   "success_url": "/",
   "scripts": {

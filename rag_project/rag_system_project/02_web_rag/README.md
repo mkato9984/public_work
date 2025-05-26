@@ -2,8 +2,8 @@
 
 高度な文書検索と質問応答システム - Google Gemini API + PostgreSQL (pgvector) 実装
 
-[![CI/CD](https://github.com/USERNAME/rag-system/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/USERNAME/rag-system/actions/workflows/ci-cd.yml)
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/USERNAME/rag-system)
+[![CI/CD](https://github.com/mkato9984/public_work/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/mkato9984/public_work/actions/workflows/ci-cd.yml)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mkato9984/public_work)
 
 ## 🌟 特徴
 
@@ -39,8 +39,8 @@
 #### セットアップ
 ```bash
 # 1. リポジトリのクローン
-git clone https://github.com/USERNAME/rag-system.git
-cd rag-system/rag_system_project/02_web_rag
+git clone https://github.com/mkato9984/public_work.git
+cd public_work/rag_project/rag_system_project/02_web_rag
 
 # 2. 仮想環境の作成
 python -m venv venv
